@@ -17,4 +17,4 @@ RUN pipenv install --skip-lock --system --dev
 # copy project
 COPY . /usr/src/mqtt_client_observer/
 
-CMD ["python", "observer.py"]
+CMD ["python", "app/mqtt_observer.py"]

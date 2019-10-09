@@ -6,7 +6,7 @@ verify_ssl = true
 [dev-packages]
 
 [packages]
-paho-mqtt = "*"
+paho-mqtt = "==1.4.0"
 
 [requires]
 python_version = "3.7"

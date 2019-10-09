@@ -13,8 +13,9 @@ def on_message(client, obj, msg):
 if __name__ == '__main__':
     # f = open("/usr/src/mqtt_client_observer/file.txt", "w+")
     # f.write("Hello 1\n")
-    mqttc = mqtt.Client(client_id="sdasdji000j")
-    mqttc.username_pw_set(username="username", password="password")
+    #
+    mqttc = mqtt.Client(client_id="asdrrr")
+    mqttc.username_pw_set(username="admin", password="admin")
     mqttc.on_message = on_message
     mqttc.connect(host=os.environ.get('MQTT_BROKER_HOST'),
                     port=int(os.environ.get('MQTT_BROKER_PORT')))

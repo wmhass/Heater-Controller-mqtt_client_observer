@@ -16,7 +16,8 @@ if __name__ == '__main__':
     mqttc = mqtt.Client(client_id="sdasdji000j")
     mqttc.username_pw_set(username="username", password="password")
     mqttc.on_message = on_message
-    mqttc.connect(os.environ.get('MQTT_BROKER_ADDR', 'localhost'))
+    mqttc.connect(host=os.environ.get('MQTT_BROKER_HOST'),
+                    port=int(os.environ.get('MQTT_BROKER_PORT')))
     mqttc.subscribe("say/hello")
     mqttc.loop_forever()
 

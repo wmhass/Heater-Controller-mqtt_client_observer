@@ -17,7 +17,7 @@ RUN pipenv install --skip-lock --system --dev
 # copy project
 COPY . /usr/src/mqtt_client_observer/
 
-ADD ./entrypoint.sh /entrypoint.sh
+COPY ./entrypoint.sh /entrypoint.sh
 RUN chmod +x /entrypoint.sh
 
 ENTRYPOINT ["/entrypoint.sh"]

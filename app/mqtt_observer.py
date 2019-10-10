@@ -1,6 +1,7 @@
 #!/usr/bin/env python
 import paho.mqtt.client as mqtt
 import os
+import time
 
 
 def on_message(client, obj, msg):
@@ -19,9 +20,9 @@ if __name__ == '__main__':
 
     mqtt_username = os.environ.get('MQTT_USERNAME')
     mqtt_password = os.environ.get('MQTT_PASSWORD')
-    mqtt_client_id = os.environ.get('MQTT_CLIENT_ID')
+    mqtt_client_id_prefix = os.environ.get('MQTT_CLIENT_ID_PREFIX')
 
-    mqttc = mqtt.Client(client_id=mqtt_client_id)
+    mqttc = mqtt.Client(client_id=mqtt_client_id_prefix + str(time.time()))
     mqttc.username_pw_set(username=mqtt_username, password=mqtt_password)
     mqttc.on_message = on_message
     mqttc.connect(host=mqtt_host, port=mqtt_port)

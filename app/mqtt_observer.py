@@ -14,11 +14,17 @@ if __name__ == '__main__':
     # f = open("/usr/src/mqtt_client_observer/file.txt", "w+")
     # f.write("Hello 1\n")
     #
-    mqttc = mqtt.Client(client_id="asdrrr")
-    mqttc.username_pw_set(username="admin", password="admin")
+    mqtt_host = os.environ.get('MQTT_BROKER_HOST')
+    mqtt_port = int(os.environ.get('MQTT_BROKER_PORT'))
+
+    mqtt_username = os.environ.get('MQTT_USERNAME')
+    mqtt_password = os.environ.get('MQTT_PASSWORD')
+    mqtt_client_id = os.environ.get('MQTT_CLIENT_ID')
+
+    mqttc = mqtt.Client(client_id=mqtt_client_id)
+    mqttc.username_pw_set(username=mqtt_username, password=mqtt_password)
     mqttc.on_message = on_message
-    mqttc.connect(host=os.environ.get('MQTT_BROKER_HOST'),
-                    port=int(os.environ.get('MQTT_BROKER_PORT')))
+    mqttc.connect(host=mqtt_host, port=mqtt_port)
     mqttc.subscribe("say/hello")
     mqttc.loop_forever()
 

@@ -18,6 +18,8 @@ if __name__ == '__main__':
     mqtt_host = os.environ.get('MQTT_BROKER_HOST')
     mqtt_port = int(os.environ.get('MQTT_BROKER_PORT'))
 
+    # Adding new comment
+
     mqtt_username = os.environ.get('MQTT_USERNAME')
     mqtt_password = os.environ.get('MQTT_PASSWORD')
     mqtt_client_id_prefix = os.environ.get('MQTT_CLIENT_ID_PREFIX')
